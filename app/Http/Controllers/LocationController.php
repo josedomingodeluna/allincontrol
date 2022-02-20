@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
 use Illuminate\Http\Request;
 
-class CommissionController extends Controller
+class LocationController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +14,7 @@ class CommissionController extends Controller
      */
     public function index()
     {
-        return view('commission.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class CommissionController extends Controller
      */
     public function create()
     {
-        return view('commission.create');
+        //
     }
 
     /**
@@ -37,39 +35,39 @@ class CommissionController extends Controller
      */
     public function store(Request $request)
     {
-        return view('commission.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Location $location)
     {
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Location $location)
     {
-        return view('commission.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Location $location)
     {
         //
     }
@@ -77,10 +75,10 @@ class CommissionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Location $location)
     {
         //
     }

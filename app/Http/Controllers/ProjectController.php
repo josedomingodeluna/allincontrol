@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\Customer;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Imports\ProductsImport;
 use Maatwebsite\Excel\Facades\Excel;
-
-use App\Models\Project;
-use App\Models\Category;
 
 class ProjectController extends Controller
 {
@@ -34,18 +34,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-
-        if($categories->isEmpty()) {
-            $notification = array(
-                'message' => 'Aún no registras ninguna Categoria',
-                'alert-type' => 'error'
-            );
-
-            return redirect()->route('category.create')->with($notification);
-        }
-        
-        return view('project.create', compact('categories'));
+        $customers = Customer::all();
+        return view('project.create', compact('customers'));
     }
 
     /**
@@ -56,38 +46,34 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request,
             [
                 'name'          => 'required|unique:projects',
-                'category'      => 'required',
-                'sale_price'    => 'required',
-                'minstock'      => 'required',
+                'budget'        => 'required',
+                'start_date'    => 'required',
+                'customer_id'   => 'required',
             ],
             [
                 'name.required'         => 'El Nombre es necesario',
                 'name.unique'           => 'Este Proyecto ya existe',
-                'sale_price.required'   => 'El Precio de Venta es necesario',
-                'category.required'     => 'Selecciona una Categoria',
-                'minstock.required'     => 'El Minimo en Stock es necesario',
+                'budget.required'       => 'El Precio de Venta es necesario',
+                'start_date.required'   => 'La Fecha de inicio es necesaria',
+                'customer_id.required'  => 'Es necesario seleccionar un Cliente',
             ],
         );
 
     Project::insert(
         [
-            'code' => $request->code,
-            'name' => $request->name,
-            'category' => $request->category,
-            'purchase_price' => $request->purchase_price,
-            'sale_price' => $request->sale_price,
-            'minstock' => $request->minstock,
-            'description' => $request->description,
-            'created_at' => Carbon::now(),
+            'name'          => $request->name,
+            'budget'        => $request->budget,
+            'start_date'    => $request->start_date,
+            'customer_id'   => $request->customer_id,
+            'created_at'    => Carbon::now(),
         ]
     );
 
     $notification = array(
-        'message' => 'Proyecto Registrado',
+        'message' => 'Proyecto registrado con exito',
         'alert-type' => 'success'
     );
 
@@ -113,10 +99,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        $project = Proyect::find($id);
-        $selected = Category::find($project->category);
-        $categories = Category::all();
-        return view('project.edit', compact('project', 'selected', 'categories'));
+        $project = Project::find($id);
+        return view('project.edit', compact('project'));
     }
 
     /**

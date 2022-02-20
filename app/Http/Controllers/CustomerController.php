@@ -44,30 +44,24 @@ class CustomerController extends Controller
     {
         $this->validate($request,
             [
-                'first_name' => 'required',
-                'last_name'  => 'required',
-                'phone'      => 'required',
-                'email'      => 'required',
+                'name'      => 'required',
+                'address'   => 'required',
+                'rfc'       => 'required',
             ],
         );
 
         Customer::insert(
             [
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'rfc' => $request->rfc,
-                'zip' => $request->zip,
-                'address' => $request->address,
-                'notes' => $request->notes,
-                'created_at' => Carbon::now(),
+                'name'          => $request->name,
+                'address'       => $request->address,
+                'rfc'           => $request->rfc,
+                'created_at'    => Carbon::now(),
             ]
         );
 
         $notification = array(
-            'message' => 'Cliente Registrado',
-            'alert-type' => 'success'
+            'message'       => 'Cliente Registrado',
+            'alert-type'    => 'success'
         );
 
         return redirect()->route('customer.index')->with($notification);
@@ -107,27 +101,22 @@ class CustomerController extends Controller
     {
         $this->validate($request,
             [
-                'first_name' => 'required'
+                'name' => 'required'
             ],
         );
 
         Customer::find($id)->update(
             [
-                'first_name'    => $request->first_name,
-                'last_name'     => $request->last_name,
-                'phone'         => $request->phone,
-                'email'         => $request->email,
-                'rfc'           => $request->rfc,
-                'zip'           => $request->zip,
+                'name'          => $request->name,
                 'address'       => $request->address,
-                'notes'         => $request->notes,
+                'rfc'           => $request->rfc,
                 'created_at'    => Carbon::now(),
             ]
         );
         
         $notification = array(
-            'message' => 'Cliente Actualizado',
-            'alert-type' => 'success'
+            'message'       => 'Cliente Actualizado',
+            'alert-type'    => 'success'
         );
 
         return redirect()->route('customer.index')->with($notification);

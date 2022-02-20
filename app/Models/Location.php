@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Location extends Model
 {
     use HasFactory;
-
-    protected $fillable =
+    protected $fillable = 
     [
-        'name',
-        'address',
-        'phone',
-        'email_cs',
-        'email_s'
+        'project_id',
+        'longitude',
+        'latitude',
     ];
 }

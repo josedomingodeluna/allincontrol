@@ -41,8 +41,8 @@ $route = Route::current()->getName();
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/rol') ? 'active':'' }}"><a href="{{route('role.index')}}"><i class="ti-more"></i>Consultar</a></li>
               <li class="{{ ($prefix == '/rol') ? 'active':'' }}"><a href="{{route('role.create')}}"><i class="ti-more"></i>Registrar</a></li>
+              <li class="{{ ($prefix == '/rol') ? 'active':'' }}"><a href="{{route('role.index')}}"><i class="ti-more"></i>Consultar</a></li>
             </ul>
           </li> 
           <li class="treeview">
@@ -52,8 +52,8 @@ $route = Route::current()->getName();
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/usuario') ? 'active':'' }}"><a href="{{route('user.index')}}"><i class="ti-more"></i>Consultar</a></li>
               <li class="{{ ($prefix == '/usuario') ? 'active':'' }}"><a href="{{route('user.create')}}"><i class="ti-more"></i>Registrar</a></li>
+              <li class="{{ ($prefix == '/usuario') ? 'active':'' }}"><a href="{{route('user.index')}}"><i class="ti-more"></i>Consultar</a></li>
             </ul>
           </li>      
         </ul>
@@ -67,61 +67,6 @@ $route = Route::current()->getName();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="treeview">
-            <a href="#">Sucursales
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/sucursal') ? 'active':'' }}"><a href="{{route('branch.index')}}"><i class="ti-more"></i>Consultar</a></li>
-              <li class="{{ ($prefix == '/sucursal') ? 'active':'' }}"><a href="{{route('branch.create')}}"><i class="ti-more"></i>Registrar</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">Folios
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/folio') ? 'active':'' }}"><a href="{{route('folio.index')}}"><i class="ti-more"></i>Consultar</a></li>
-              <li class="{{ ($prefix == '/folio') ? 'active':'' }}"><a href="{{route('folio.create')}}"><i class="ti-more"></i>Registrar</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">Documentos
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/documento') ? 'active':'' }}"><a href="{{route('document.index')}}"><i class="ti-more"></i>Consultar</a></li>
-              <li class="{{ ($prefix == '/documento') ? 'active':'' }}"><a href="{{route('document.create')}}"><i class="ti-more"></i>Registrar</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">Datos Documentos
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/datosdocumento') ? 'active':'' }}"><a href="{{route('document_data.index')}}"><i class="ti-more"></i>Consultar</a></li>
-              <li class="{{ ($prefix == '/datosdocumento') ? 'active':'' }}"><a href="{{route('document_data.create')}}"><i class="ti-more"></i>Registrar</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">Categorias
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/categoria') ? 'active':'' }}"><a href="{{route('category.index')}}"><i class="ti-more"></i>Consultar</a></li>
-              <li class="{{ ($prefix == '/categoria') ? 'active':'' }}"><a href="{{route('category.create')}}"><i class="ti-more"></i>Registrar</a></li>
-            </ul>
-          </li>
         </ul>
       </li>
 
@@ -134,8 +79,8 @@ $route = Route::current()->getName();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($prefix == '/horarios') ? 'active':'' }}"><a href="{{route('project.index')}}"><i class="ti-more"></i>Consultar</a></li>
           <li class="{{ ($prefix == '/horarios') ? 'active':'' }}"><a href="{{route('project.create')}}"><i class="ti-more"></i>Registrar</a></li>
+          <li class="{{ ($prefix == '/horarios') ? 'active':'' }}"><a href="{{route('project.index')}}"><i class="ti-more"></i>Consultar</a></li>
         </ul>
       </li>
 
@@ -148,8 +93,8 @@ $route = Route::current()->getName();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($prefix == '/proyecto') ? 'active':'' }}"><a href="{{route('project.index')}}"><i class="ti-more"></i>Consultar</a></li>
           <li class="{{ ($prefix == '/proyecto') ? 'active':'' }}"><a href="{{route('project.create')}}"><i class="ti-more"></i>Registrar</a></li>
+          <li class="{{ ($prefix == '/proyecto') ? 'active':'' }}"><a href="{{route('project.index')}}"><i class="ti-more"></i>Consultar</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -161,8 +106,8 @@ $route = Route::current()->getName();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($prefix == '/empleado') ? 'active':'' }}"><a href="{{route('employee.index')}}"><i class="ti-more"></i>Consultar</a></li>
           <li class="{{ ($prefix == '/empleado') ? 'active':'' }}"><a href="{{route('employee.create')}}"><i class="ti-more"></i>Registrar</a></li>
+          <li class="{{ ($prefix == '/empleado') ? 'active':'' }}"><a href="{{route('employee.index')}}"><i class="ti-more"></i>Consultar</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -174,8 +119,8 @@ $route = Route::current()->getName();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($prefix == '/cliente') ? 'active':'' }}"><a href="{{route('customer.index')}}"><i class="ti-more"></i>Consultar</a></li>
           <li class="{{ ($prefix == '/cliente') ? 'active':'' }}"><a href="{{route('customer.create')}}"><i class="ti-more"></i>Registrar</a></li>
+          <li class="{{ ($prefix == '/cliente') ? 'active':'' }}"><a href="{{route('customer.index')}}"><i class="ti-more"></i>Consultar</a></li>
         </ul>
       </li>
     </ul>
@@ -188,36 +133,6 @@ $route = Route::current()->getName();
           <span>Resumen</span>
         </a>
       </li>
-
-      <li class="treeview">
-        <a href="#">
-          <i data-feather="file-text"></i>
-          <span>Cotización</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li class="{{ ($prefix == '/cotizacion') ? 'active':'' }}"><a href="{{route('quote.index')}}"><i class="ti-more"></i>Consultar</a></li>
-          <li class="{{ ($prefix == '/cotizacion') ? 'active':'' }}"><a href="{{route('quote.create')}}"><i class="ti-more"></i>Registrar</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-          <i data-feather="shopping-bag"></i>
-          <span>Orden de Compra</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-              <li class="{{ ($prefix == '/ordendecompra') ? 'active':'' }}"><a href="{{route('purchase_order.preview')}}"><i class="ti-more"></i>Generar</a></li>
-              <li class="{{ ($prefix == '/ordendecompra') ? 'active':'' }}"><a href="{{route('purchase_order.index')}}"><i class="ti-more"></i>Consultar</a></li>
-              <li class="{{ ($prefix == '/ordendecompra') ? 'active':'' }}"><a href="{{route('purchase_order.create')}}"><i class="ti-more"></i>Registrar</a></li>
-            </ul>
-      </li>
-
     </ul>
 
   </section>

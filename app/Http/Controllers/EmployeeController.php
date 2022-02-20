@@ -21,7 +21,6 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-
         return view('employee.index', compact('employees'));
     }
 
@@ -32,9 +31,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $branches = Branch::all();
-
-        return view('employee.create', compact('branches'));
+        return view('employee.create');
     }
 
     /**
@@ -47,31 +44,40 @@ class EmployeeController extends Controller
     {
         $validated = $request->validate(
             [
+                'date_of_birth' => 'required',
                 'first_name'    => 'required',
                 'last_name'     => 'required',
+                'address'       => 'required',
+                'phone'         => 'required',
                 'rfc'           => 'min:4|max:13|unique:employees',
                 'curp'          => 'min:0|max:18',
+                'nss'           => 'min:0|max:18',
             ],
 
             [
-                'rfc.unique'    => 'RFC ya esta registrado',
+                'date_of_birth.required'    => 'Campo obligatorio',
+                'first_name.required'       => 'Campo obligatorio',
+                'last_name.required'        => 'Campo obligatorio',
+                'rfc.unique'                => 'Este RFC ya esta registrado',
             ],
         );
 
         Employee::insert(
             [
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'rfc' => $request->rfc,
-                'curp' => $request->curp,
-                'phone' => $request->phone,
-                'address' => $request->last_name,
+                'date_of_birth' => $request->date_of_birth,
+                'first_name'    => $request->first_name,
+                'last_name'     => $request->last_name,
+                'address'       => $request->address,
+                'phone'         => $request->phone,
+                'curp'          => $request->curp,
+                'rfc'           => $request->rfc,
+                'nss'           => $request->nss,
                 'created_at' => Carbon::now(),
             ]
         );
 
         $notification = array(
-            'message' => 'Empleado registrado',
+            'message' => 'Empleado registrado con exito',
             'alert-type' => 'success'
         );
 
@@ -118,13 +124,14 @@ class EmployeeController extends Controller
 
         Employee::find($id)->update(
             [
+                'date_of_birth' => Carbon::createFromFormat('d/m/Y', $request->date_of_birth),
                 'first_name'    => $request->first_name,
                 'last_name'     => $request->last_name,
-                'rfc'         => $request->rfc,
-                'curp'         => $request->curp,
-                'address'           => $request->address,
-                'phone'           => $request->phone,
-                'notes'         => $request->notes,
+                'address'       => $request->address,
+                'phone'         => $request->phone,
+                'curp'          => $request->curp,
+                'rfc'           => $request->rfc,
+                'nss'           => $request->nss,
                 'created_at'    => Carbon::now(),
             ]
         );
@@ -146,7 +153,7 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $employee = Employee::findOrFail($id);
-            $employee->delete();
-            return redirect()->route('employee.index')->with('deleted','yes');
+        $employee->delete();
+        return redirect()->route('employee.index')->with('deleted','yes');
     }
 }

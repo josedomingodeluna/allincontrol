@@ -8,6 +8,6 @@
 			<a class="nav-link" href="#"></a>
 		  </li>
 		</ul>
-    </div>-->
-<!-- &copy; 2020 <a href="#">Pequeños Dormilones</a>. Todos los derechos reservados. -->
+    </div>
+	&copy; 2020 <a href="#">Pequeños Dormilones</a>. Todos los derechos reservados. -->
 </footer>

@@ -36,88 +36,38 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="row">
-                                                <div class="col-12">
+                                                <div class="col-8">
                                                     <div class="form-group">
                                                         <h5>Nombre: <span class="text-danger">*</span></h5>
-                                                        <input type="text" id="first_name" name="first_name" value="{{$customer->first_name}}" class="form-control">
-                                                        @error('first_name')
+                                                        <input type="text" id="name" name="name" class="form-control" value="{{$customer->name}}">
+                                                        @error('name')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <h5>Apellidos: <span class="text-danger">*</span></h5>
-                                                        <input type="text" id="last_name" name="last_name" value="{{$customer->last_name}}" class="form-control">
-                                                        @error('last_name')
-                                                            <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                </div> 
-                                            <div class="row">
                                                 <div class="col-4">
                                                     <div class="form-group">
-                                                        <h5>RFC: </h5>
-                                                        <input type="text" id="rfc" name="rfc" value="{{$customer->rfc}}" class="form-control">
+                                                        <h5>RFC: <span class="text-danger">*</span></h5>
+                                                        <input type="text" id="rfc" name="rfc" class="form-control" value="{{$customer->rfc}}">
                                                         @error('rfc')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
-                                                    <div class="form-group">
-                                                        <h5>Correo: <span class="text-danger">*</span></h5>
-                                                        <input type="text" id="email" name="email" value="{{$customer->email}}" class="form-control">
-                                                        @error('email')
-                                                            <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div> 
-                                                <div class="col-4">
-                                                    <div class="form-group">
-                                                        <h5>Teléfono: <span class="text-danger">*</span></h5>
-                                                        <input type="text" id="phone" name="phone" value="{{$customer->phone}}" class="form-control">
-                                                        @error('phone')
-                                                            <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                                                           
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="form-group">
-                                                        <h5>CP: </h5>
-                                                        <input type="text" id="zip" name="zip" value="{{$customer->zip}}" class="form-control">
-                                                        @error('zip')
-                                                            <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-8">
+                                                <div class="col-12">
                                                     <div class="form-group">
                                                         <h5>Dirección: <span class="text-danger">*</span></h5>
-                                                        <input type="text" id="address" name="address" value="{{$customer->address}}" class="form-control">
+                                                        <input type="text" id="address" name="address" class="form-control" value="{{$customer->address}}">
                                                             @error('address')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                    <h5>Notas: <span class="text-danger"></span></h5>
-                                                        <textarea name="notes" id="notes" class="form-control" placeholder="Textarea text" aria-invalid="false">{{$customer->notes}}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-info" value="Guardar">
+                                    <input type="submit" class="btn btn-rounded btn-info" value="Actualizar">
                                     </div>
                                 </form>
                             </div>

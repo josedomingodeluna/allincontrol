@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('customer.create')}}" class="btn btn-danger btn-sm float-left"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Cliente</a>
+        <a href="{{route('customer.create')}}" class="btn btn-danger btn-sm float-left"><i class="fa fa-plus" aria-hidden="true"></i> Nuevo Cliente</a>
     </div>
     <!-- Main content -->
     <section class="content">
@@ -34,27 +34,26 @@
                         <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
                             <th>RFC</th>
-                            <th>CP</th>
-                            <th>Dirección</th>
-                            <th>Notas</th>
+                            <th>Direccion</th>
+                            <th></th>
+                            <th></th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach($customers as $customer)
                             <tr>
-                                <td>{{$customer->first_name}} {{$customer->last_name}}</td>
-                                <td>{{$customer->phone}}</td>
-                                <td>{{$customer->email}}</td>
+                                <td>{{$customer->name}}</td>
                                 <td>{{$customer->rfc}}</td>
-                                <td>{{$customer->zip}}</td>
                                 <td>{{$customer->address}}</td>
-                                <td>{{$customer->notes}}</td>
                                 <td>
-                                    <a class="btn btn-circle btn-danger mb-5" name="edit" href="{{ route('customer.edit',$customer->id)}}"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-circle btn-success mb-5" name="edit" href="{{ route('customer.edit',$customer->id)}}"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-circle btn-success mb-5" name="" href="{{ route('contact.createForCustomer', $customer->id)}}"><i class="fa fa-address-book"></i></a>
+                                </td>
+                                <td>
                                     <a class="btn btn-circle btn-danger mb-5" name="delete" href="{{ route('customer.destroy',$customer->id)}}"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -63,12 +62,11 @@
                         <tfoot>
                         <tr>
                             <th>Nombre</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
                             <th>RFC</th>
-                            <th>CP</th>
-                            <th>Dirección</th>
-                            <th>Notas</th>
+                            <th>Direccion</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </tfoot>
                     </table>

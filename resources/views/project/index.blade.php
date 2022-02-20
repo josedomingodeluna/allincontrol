@@ -52,14 +52,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                        <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Precio de Compra</th>
-                        <th>Precio de Venta</th>
-                        <th>Existencia minima</th>
-                        <!-- <th>Descripción</th> -->
-                        <th></th>
+                        <th>Presupuesto</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Cliente</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -67,35 +63,25 @@
                     <tbody>
                         @foreach($projects as $project)
                         <tr>
-                            <td>{{$project->code}}</td>
                             <td>{{$project->name}}</td>
-                            <td>{{$project->category}}</td>
-                            <td>{{$project->purchase_price}}</td>
-                            <td>{{$project->sale_price}}</td>
-                            <td>{{$project->minstock}}</td>
-                            <!-- <td>{{$project->description}}</td> -->
+                            <td>{{$project->budget}}</td>
+                            <td>{{$project->start_date}}</td>
+                            <td>{{$project->customer_id}}</td>
                             <td>
-                                <span><a class="btn btn-circle btn-danger mb-5" href="{{ route('purchase_order.addItem',  ['id' => $project->id, 'name' => $project->name, 'price' => $project->sale_price]) }}"><i class="fa fa-shopping-bag"></i></a></span>
+                                <a class="btn btn-circle btn-danger mb-5" name="edit" href="{{ route('project.edit',$project->id)}}"><i class="fa fa-pencil"></i></a>
                             </td>
                             <td>
-                                <a class="btn btn-circle btn-danger mb-5" name="edit" href="{{ route('product.edit',$project->id)}}"><i class="fa fa-pencil"></i></a>
-                            </td>
-                            <td>
-                                <a class="btn btn-circle btn-danger mb-5" name="delete" href="{{ route('product.destroy',$project->id)}}"><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-circle btn-danger mb-5" name="delete" href="{{ route('project.destroy',$project->id)}}"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
-                    <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Precio de Compra</th>
-                        <th>Precio de Venta</th>
-                        <th>Existencia minima</th>
-                        <!-- <th>Descripción</th> -->
-                        <th></th>
+                        <th>Presupuesto</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Cliente</th>
                         <th></th>
                         <th></th>
                     </tr>

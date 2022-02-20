@@ -10,15 +10,9 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        'code',
-        'image',
         'name',
-        'category',
-        'purchase_price',
-        'sale_price',
-        'branch',
-        'stock',
-        'minstock',
-        'description',
+        'budget',
+        'start_date',
+        'customer_id',
     ];
 }
